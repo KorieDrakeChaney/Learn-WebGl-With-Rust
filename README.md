@@ -11,3 +11,8 @@ new WasmPackPlugin({
     outDir : "../../pkg"
 })
 ```
+and run 
+
+```bash 
+npm run refresh
+```
