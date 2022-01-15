@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - WebGl tutorial - In Rust</title>
+        <title>Introduction - WebGl Tutorial using Rust</title>
 
 
         <!-- Custom HTML head -->
@@ -110,7 +110,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">WebGl tutorial - In Rust</h1>
+                    <h1 class="menu-title">WebGl Tutorial using Rust</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -142,27 +142,71 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+                        <br>
+<h1 style = "text-align: center;"> Introduction </h1>
 <hr />
-<p><em><strong>About this tutorial</strong></em></p>
-<p><em>This tutorial is free and open source, and all code uses the MIT license - so you are free to do whatever you want with this code :D</em></p>
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<span style="font-size : 30px;"><b>About This Tutorial</b></span>
+</div>
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<p><i style="color:grey;">This tutorial is free and open source, and all code uses the MIT license - so you are free to do whatever you want with this <a style="color:rgba(0, 125, 125, 1);" href="https://github.com/KorieDrakeChaney/Learn-WebGl-With-Rust" target="_blank">code</a> :D</i></p>
+<p>I really enjoy computer graphics, from the mathematically aspect and the results that you can create. The possibilities are limitless, you can make worlds, games, simulations, data visualizations, beautiful websites, anything. With the computer graphics world, I feel that there is one tutorial that stands above the rest. That tutorial is <a target="_blank" href="https://learnopengl.com">learnopengl.com</a>. To continue the love and my love for Web Development / Rust, I will be recreating that tutorial, for users who want to learn WebGl but also want to use Rust as their language of choice. You'll also learn WebAssembly in general through this process.</p>
+</div>
 <hr />
-<p>I really enjoy computer graphics, from the mathematically aspect and the results that you can create. The possibilities are limitless, you can make worlds, games, simulations, data visualizations, beautiful websites, anything. With the computer graphics world, I feel that there is one tutorial that stands above the rest. That tutorial is <a href="https://learnopengl.com/Introduction">learnopengl.com</a>. To continue the love, and my love for Web Development / Rust, I will be recreating that tutorial, for users who want to learn WebGl but also want to use Rust as their language of choice. You'll also learn WebAssembly in general through this process.</p>
-<hr />
-<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<h2 style="color:rgba(255, 125, 125, 0.75)">Prerequisites</h2>
 <ul>
-<li><a href="https://www.rust-lang.org/tools/install">Rust</a></li>
-<li><a href="https://rustwasm.github.io/wasm-pack/installer/">Wasm-Pack</a> </li>
+<li>
+<p><a target="_blank" href="https://www.rust-lang.org/tools/install">Rust</a></p>
+</li>
+<li>
+<p><a target="_blank" href="https://rustwasm.github.io/wasm-pack/installer/">Wasm-Pack</a></p>
+</li>
 </ul>
 <p>This tutorial is primarily about learning WebGl while using Rust. I will be hoping that you do have a basic understanding of Rust's syntax, as some of the code may confuse you if you have never used Rust before. What I will do, is describe the logic. </p>
 <p>If you do not know anything about rust, I will direct you to these following tutorials...</p>
+</div>
 <hr />
-<h3 id="learning-rust"><a class="header" href="#learning-rust">Learning Rust</a></h3>
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<h2 style="color:rgba(255, 125, 125, 0.75)">Learning Rust</h2>
 <ul>
-<li><a href="https://doc.rust-lang.org/book/">The Rust Programming Language Book</a> allows you to understand the basics. </li>
-<li><a href="https://doc.rust-lang.org/rust-by-example/">Learn Rust by Example</a> more for references. </li>
-<li><a href="https://blog.thoughtram.io/rust/2015/05/11/rusts-ownership-model-for-javascript-developers.html">Rust's Ownership Model for JavaScript Developers</a> if you are coming from javascript, this could be helpful.</li>
+<li><a target="_blank" href="https://doc.rust-lang.org/book/">The Rust Programming Language Book</a> allows you to understand the basics. </li>
+<li><a target="_blank" href="https://doc.rust-lang.org/rust-by-example/">Learn Rust by Example</a> more for references. </li>
+<li><a target="_blank" href="https://blog.thoughtram.io/rust/2015/05/11/rusts-ownership-model-for-javascript-developers.html">Rust's Ownership Model for JavaScript Developers</a> if you are coming from javascript, this could be helpful.</li>
 </ul>
+</div>
+<hr />
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://webpack.js.org/">Structure</a></b></span>
+<br>
+<span style="color:grey">Tutorial layout</span>
+</div>
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+    Taken from <a target="_blank" href="https://learnopengl.com/Introduction">learnopengl.com</a>, I'll also structure this the same way, with boxes, code blocks, color hints, and <i>function references</i> but translated in webgl.
+<h2 style="color:rgba(255, 125, 125, 0.75)">Boxes</h2>
+<div style="background-color : rgba(191, 245, 205, 0.75); padding:2% 1%"> <b style="color : rgba(7, 41, 16, 1)">Green</b> <span style="color : rgba(23, 87, 40, 1)">boxes encompasses some notes or useful features/hints about WebGL or the subject at hand.</span></div>
+<br>
+<div style="background-color : rgba(240, 156, 156, 0.75); padding:2% 1%"> <b style="color : rgba(79, 11, 11, 1)">Red</b> <span style="color : rgba(110, 25, 25, 1)">boxes will contain warnings or other features you have to be extra careful with.</span></div>
+<h2 style="color:rgba(255, 125, 125, 0.75)">Code</h2>
+You will see fragments of code scattered around the book in dark-gray boxes like this 
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>println!(&quot;Hello World!&quot;);
+
+<span class="boring">}
+</span></code></pre></pre>
+<h2 style="color:rgba(255, 125, 125, 0.75)">Color hints</h2>
+Some words are displayed with a different color to make it extra clear these words portray a special meaning:
+<ul>
+  <li><b style="color : rgba(71, 255, 90, 1)">Definition:</b> green words specify a definition i.e. an important aspect/name of something you're likely to hear more often.</li>
+  <li><b style="color : rgba(232, 50, 37, 1)">Program structure:</b> red words specify function names or class names.</li>
+  <li><b style="color : rgba(65, 71, 250, 1)">Variables:</b> blue words specify variables including all WebGL constants</li>
+</ul>
+<h2 style="color:rgba(255, 125, 125, 0.75)">WebGl Function references</h2>
+Functions will show up in a slightly noticeable underline with bolded and color, to link you to the documentation. Clicking on <b>gl.<a style="color:rgba(100, 155, 155, 1); text-decoration:underline;"href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html#method.clear_color" target="_blank">clear_color</a>(1.0, 0.0, 0.0, 1.0);</b>
+<p>Now that you got a bit of a feel of the structure of the site, hop over to the <a href="./chapter_1.html">Getting Started section</a> to start your journey in WebGL! </p>
+</div>
 <hr />
 <p>Copyright (C) 2022, Korie Chaney.</p>
 <hr />

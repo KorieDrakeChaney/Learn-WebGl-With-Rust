@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Section 1 - Getting Started - WebGl tutorial - In Rust</title>
+        <title>Section 1 - Getting Started - WebGl Tutorial using Rust</title>
 
 
         <!-- Custom HTML head -->
@@ -110,7 +110,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">WebGl tutorial - In Rust</h1>
+                    <h1 class="menu-title">WebGl Tutorial using Rust</h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -142,7 +142,148 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="chapter-1--hello-triangle"><a class="header" href="#chapter-1--hello-triangle">Chapter 1 : Hello Triangle</a></h1>
+                        <br>
+<h1 style = "text-align: center;"> Chapter 1 : Setup </h1>
+<hr />
+<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
+<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://github.com/cargo-generate/cargo-generate">Template</a></b></span>
+<br>
+<span style="color:grey">The template</span>
+</div>
+<br>
+<div style = "background-color : rgba(0, 0, 0, 0.05);">
+<p>Before we get into the fun stuff, we do need to set up our dev space.
+I'll be using VSCode, but you can use whichever IDE of your choice.</p>
+<p>I would also like for you to use the same <a target="_blank" href="https://github.com/KorieDrakeChaney/Rust-Wasm-Web-Template"><b>template</b></a> which I am using, so we do not have any trouble. </p>
+</div>
+<hr />
+<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
+<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://github.com/cargo-generate/cargo-generate">cargo-generate</a></b></span>
+<br>
+<span style="color:grey">The setup</span>
+</div>
+<pre><code class="language-bash">    cargo generate https://github.com/KorieDrakeChaney/Rust-Wasm-Web-Template.git
+</code></pre>
+<pre><code class="language-bash">    cd [name-of-your-choice]
+    cargo build &amp;&amp; npm install
+    code ./
+</code></pre>
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+You should get something a layout like this :
+<p><img src="./c1-s0.png" alt="screenshot" /></p>
+<p>You'll have a <b style="color:rgba(50, 150, 150, 1);">public</b>, <b style="color:rgba(50, 150, 150, 1);">src</b>, and <b style="color:rgba(50, 150, 150, 1);">web</b> directory. </p>
+</div>
+<hr />
+<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
+<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://github.com/rustwasm/wasm-bindgen">Wasm-Bindgen</a></b></span>
+<br>
+<span style="color:grey">The communicator</span>
+</div>
+<br>
+<div style = "background-color : rgba(0, 0, 0, 0.05);">
+You can check into the <b style="color:orange">Cargo.toml</b> file and change the name to whatever you want, I'll fill mine out like this :
+<p><img src="./c1-s1.png" alt="screenshot" /></p>
+<p>You'll notice that there is already a crate-type and a dependency already loaded in. 
+Here is one of our ways to talk to javascript, using <a href="https://rustwasm.github.io/wasm-bindgen/">wasm-bindgen</a>. Taken from the <a href="https://github.com/rustwasm/wasm-bindgen">repository</a> :</p>
+</div>
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<h2 style="text-align:center"> <b>Features</b> </h2>
+<ul>
+<li>
+<p><strong>Lightweight.</strong> Only pay for what you use. <code>wasm-bindgen</code> only generates
+bindings and glue for the JavaScript imports you actually use and Rust
+functionality that you export. For example, importing and using the
+<code>document.querySelector</code> method doesn't cause <code>Node.prototype.appendChild</code> or
+<code>window.alert</code> to be included in the bindings as well.</p>
+</li>
+<li>
+<p><strong>ECMAScript modules.</strong> Just import WebAssembly modules the same way you would
+import JavaScript modules. Future compatible with [WebAssembly modules and
+ECMAScript modules integration][wasm-es-modules].</p>
+</li>
+<li>
+<p><strong>Designed with the [&quot;Web IDL bindings&quot; proposal][webidl-bindings] in mind.</strong>
+Eventually, there won't be any JavaScript shims between Rust-generated wasm
+functions and native DOM methods. Because the wasm functions are statically
+type checked, some of those native methods' dynamic type checks should become
+unnecessary, promising to unlock even-faster-than-JavaScript DOM access.</p>
+</li>
+</ul>
+</div>
+<hr />
+<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
+<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://webpack.js.org/">Webpack</a></b></span>
+<br>
+<span style="color:grey">The bundler</span>
+</div>
+<br>
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+In the <b style="color : orange">webpack.config.js</b> file, you'll see that this is our setup:
+<pre><code class="language-javascript">const CopyPlugin = require(&quot;copy-webpack-plugin&quot;);
+const path = require('path');
+const WasmPackPlugin = require(&quot;@wasm-tool/wasm-pack-plugin&quot;);
+
+module.exports = {
+  entry: 
+  {
+    main : &quot;./web/main.js&quot;,
+  },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
+  },
+  mode: &quot;development&quot;,
+  plugins: [
+    new CopyPlugin({
+        patterns: [
+          { from: './public/index.html'},
+        ],
+    }), 
+    new WasmPackPlugin({
+      crateDirectory: path.resolve(__dirname, &quot;.&quot;)
+    })
+  ],
+    experiments : {
+        asyncWebAssembly : true
+    }
+
+};
+
+</code></pre>
+<p>You do not have to know what's going on here, basically just compiling our code from our rust files into a javascript/wasm relationship.</p>
+</div>
+<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
+<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://webpack.js.org/">Testing</a></b></span>
+<br>
+<span style="color:grey">The test</span>
+</div>
+<br>
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+To check if we are all on the same page, I want to introduce some of the commands in our <b style="color : orange">package.json</b> file. 
+<p>We should have these scripts in our json file</p>
+<pre><code class="language-json">  &quot;scripts&quot;: {
+    &quot;build&quot;: &quot;node cleanup &amp;&amp; webpack&quot;,
+    &quot;server&quot;: &quot;webpack-dev-server&quot;,
+    &quot;refresh&quot; : &quot;npm run build &amp;&amp; npm run server&quot;
+  }
+</code></pre>
+<p><b style="color : rgba(50, 135, 61, 1)">&quot;build&quot;</b> : calls node cleanup, which cleans the dist folder.
+<br>
+<b style="color : rgba(50, 135, 61, 1)">&quot;server&quot;</b> : creates a <a target="_blank" href="https://webpack.js.org/configuration/dev-server/">webpack-dev-server</a>.
+<br>
+<b style="color : rgba(50, 135, 61, 1)">&quot;refresh&quot;</b> : calls build then creates a server.</p>
+<p>in your terminal, with the folder open, type in the command </p>
+<pre><code class="language-bash">npm run refresh
+</code></pre>
+<p>You should have some new folders created, a <b style="color:rgba(50, 150, 150, 1);">dist</b> folder, and a <b style="color:rgba(50, 150, 150, 1);">pkg</b> folder.</p>
+<p>The <b style="color:rgba(50, 150, 150, 1);">pkg</b> folder will contain the files the <b>wasm-pack</b> generated and the <b style="color:rgba(50, 150, 150, 1);">dist</b> will contain files generated by the bundler, <b>webpack</b>.</p>
+<p>Open up the dev server that <b>webpack</b> created. You should be greeted with an alert:</p>
+<p><img src="./c1-s2.png" alt="screenshot" /></p>
+<p>Now that we have our environment ready, let's tackle on some WebGL with creating a <a href="./chapter_2.html">window</a>!</p>
+</div>
+<hr />
+<p>Copyright (C) 2022, Korie Chaney.</p>
+<hr />
 
                     </main>
 
