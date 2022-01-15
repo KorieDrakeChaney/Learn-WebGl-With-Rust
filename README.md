@@ -7,7 +7,7 @@ in the ***webpack.config.js*** file, change the CrateDirectory's path to desired
 
 ```js
 new WasmPackPlugin({
-    crateDirectory: path.resolve(__dirname, "./src/chapter-1 Getting Started"), 
+    crateDirectory: path.resolve(__dirname, "./src/chapter-1"), 
     outDir : "../../pkg"
 })
 ```
