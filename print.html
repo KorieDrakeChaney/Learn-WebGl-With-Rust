@@ -336,7 +336,7 @@ To check if we are all on the same page, I want to introduce some of the command
     &quot;refresh&quot; : &quot;npm run build &amp;&amp; npm run server&quot;
   }
 </code></pre>
-<p><b style="color : rgba(50, 135, 61, 1)">&quot;build&quot;</b> : calls node cleanup, which cleans the dist folder.
+<p><b style="color : rgba(50, 135, 61, 1)">&quot;build&quot;</b> : calls node cleanup, which cleans the dist folder, then calls webpack to bundle our code.
 <br>
 <b style="color : rgba(50, 135, 61, 1)">&quot;server&quot;</b> : creates a <a target="_blank" href="https://webpack.js.org/configuration/dev-server/">webpack-dev-server</a>.
 <br>
