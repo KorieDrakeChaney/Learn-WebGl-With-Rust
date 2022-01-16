@@ -464,7 +464,7 @@ To dissect this code:
 <span class="boring">}
 </span></code></pre></pre>
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
-the  <b style="color:rgba(232, 50, 37, 1)">#[wasm_bindgen]</b> <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/reference/attributes/index.html">macro helps for controlling precisely how exports are exported</a>
+the  <b style="color:rgba(232, 50, 37, 1)">#[wasm_bindgen]</b> <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/reference/attributes/index.html">macro helps for controlling precisely how exports are exported and how imports are imported</a>
 <p>anything after a <b>#[wasm_bindgen]</b> macro with a <b>extern &quot;C&quot; brackets will be javascript imports</b> :</p>
 </div>
 <pre><pre class="playground"><code class="language-rust">
@@ -637,20 +637,6 @@ at <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>:
 
         </div>
 
-        <!-- Livereload script (if served using the cli tool) -->
-        <script type="text/javascript">
-            var socket = new WebSocket("ws://localhost:3000/__livereload");
-            socket.onmessage = function (event) {
-                if (event.data === "reload") {
-                    socket.close();
-                    location.reload();
-                }
-            };
-
-            window.onbeforeunload = function() {
-                socket.close();
-            }
-        </script>
 
 
 
