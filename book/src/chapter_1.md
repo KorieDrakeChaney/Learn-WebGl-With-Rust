@@ -2,15 +2,11 @@
 <h1 style = "text-align: center;"> Chapter 1 : Setup </h1>
 
 --- 
-<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
-<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://github.com/cargo-generate/cargo-generate">Template</a></b></span>
-<br>
-<span style="color:grey">The template</span>
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<span style="font-size : 30px;"><b>Template</b></span>
 </div>
 
-<br>
-<div style = "background-color : rgba(0, 0, 0, 0.05);">
-
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
 Before we get into the fun stuff, we do need to set up our dev space.
 I'll be using VSCode, but you can use whichever IDE of your choice.
 
@@ -19,8 +15,8 @@ I would also like for you to use the same <a target="_blank" href="https://githu
 
 ---
 
-<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
-<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://github.com/cargo-generate/cargo-generate">cargo-generate</a></b></span>
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<span style="font-size : 30px;"><b><a target ="_blank" href="https://github.com/cargo-generate/cargo-generate">cargo-generate</a></b></span>
 <br>
 <span style="color:grey">The setup</span>
 </div>
@@ -43,13 +39,13 @@ You'll have a <b style="color:rgba(50, 150, 150, 1);">public</b>, <b style="colo
 </div>
 
 ---
-<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
-<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://github.com/rustwasm/wasm-bindgen">Wasm-Bindgen</a></b></span>
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<span style="font-size : 30px;"><b><a target ="_blank" href="https://github.com/rustwasm/wasm-bindgen">Wasm-Bindgen</a></b></span>
 <br>
 <span style="color:grey">The communicator</span>
 </div>
-<br>
-<div style = "background-color : rgba(0, 0, 0, 0.05);">
+
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
 You can check into the <b style="color:orange">Cargo.toml</b> file and change the name to whatever you want, I'll fill mine out like this :
 
 ![screenshot](./c1-s1.png)
@@ -80,12 +76,11 @@ Here is one of our ways to talk to javascript, using [wasm-bindgen](https://rust
 
 ---
 
-<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
-<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://webpack.js.org/">Webpack</a></b></span>
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<span style="font-size : 30px;"><b><a target ="_blank" href="https://webpack.js.org/">Webpack</a></b></span>
 <br>
 <span style="color:grey">The bundler</span>
 </div>
-<br>
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
 In the <b style="color : orange">webpack.config.js</b> file, you'll see that this is our setup:
 
@@ -125,12 +120,11 @@ module.exports = {
 You do not have to know what's going on here, basically just compiling our code from our rust files into a javascript/wasm relationship.
 </div>
 
-<div style = "background-color : rgba(0, 0, 0, 0.1); text-align: center; ">
-<span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://webpack.js.org/">Testing</a></b></span>
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<span style="font-size : 30px;"><b><a target ="_blank" href="https://webpack.js.org/">Testing</a></b></span>
 <br>
 <span style="color:grey">The test</span>
 </div>
-<br>
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
 To check if we are all on the same page, I want to introduce some of the commands in our <b style="color : orange">package.json</b> file. 
 

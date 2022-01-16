@@ -19,7 +19,7 @@ module.exports = {
         ],
     }), 
     new WasmPackPlugin({
-      crateDirectory: path.resolve(__dirname, "./src/chapter-1"), 
+      crateDirectory: path.resolve(__dirname, "./src/chapter-1-1"), 
       outDir : "../../pkg"
     })
   ],

@@ -2,7 +2,7 @@
 
 [Introduction](./chapter_0.md)
 - [Section 1 - Getting Started](./chapter_1.md)
-    - [Hello Window](./chapter_2.md)
+    - [Hello Canvas](./chapter_2.md)
     - [Hello Triangle](./chapter_3.md)
     - [Shaders](./chapter_4.md)
     - [Textures](./chapter_5.md)
