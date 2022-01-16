@@ -520,10 +520,10 @@ pub fn main() {
 }
 </code></pre></pre>
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
-Now if you disect this , it shouldn't be all that scary, first we retrive <b>window</b>, by unwrapping, then we get the <b>document</b> by unwrapping.
+Now if you disect this , it shouldn't be all that scary, first we retrieve <b>window</b>, by unwrapping, then we get the <b>document</b> by unwrapping.
 <p>After getting the document, we can get the canvas by doing a normal javascript function<b>
 <a style="color:rgba(100, 155, 155, 1); text-decoration:underline;" href="https://docs.rs/web-sys/0.3.27/web_sys/struct.Document.html#method.get_element_by_id" target="_blank">get_element_by_id</a>(&quot;~~~~&quot;)</b>, which the id we put for our canvas element was &quot;canvas&quot;, then of course we unwrap.</p>
-<p>Now what we retrieved was a <b><a href="https://rustwasm.github.io/wasm-bindgen/api/wasm_bindgen/struct.JsValue.html" style="color:rgba(100, 155, 155, 1); text-decoration:underline;"  target="_blank">JSvalue</a></b>, and as the documentation says, doesn't live in rust, we would have to retrive it's value, by using <b><a href="https://rustwasm.github.io/wasm-bindgen/api/wasm_bindgen/trait.JsCast.html#method.dyn_into" style="color:rgba(100, 155, 155, 1); text-decoration:underline;"  target="_blank">dyn_init</a>::&lt;~~~&gt;</b>, which then gives up the rust value of canvas.  Next step is to get the <a href ="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html" target="_blank">WebGL2RenderingContext</a> by :</p>
+<p>Now what we retrieved was a <b><a href="https://rustwasm.github.io/wasm-bindgen/api/wasm_bindgen/struct.JsValue.html" style="color:rgba(100, 155, 155, 1); text-decoration:underline;"  target="_blank">JSvalue</a></b>, and as the documentation says, doesn't live in rust, we would have to retrieve it's value, by using <b><a href="https://rustwasm.github.io/wasm-bindgen/api/wasm_bindgen/trait.JsCast.html#method.dyn_into" style="color:rgba(100, 155, 155, 1); text-decoration:underline;"  target="_blank">dyn_init</a>::&lt;~~~&gt;</b>, which then gives up the rust value of canvas.  Next step is to get the <a href ="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html" target="_blank">WebGL2RenderingContext</a> by :</p>
 </div>
 <pre><pre class="playground"><code class="language-rust">#[wasm_bindgen(start)]
 pub fn main() {
