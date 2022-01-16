@@ -51,7 +51,7 @@ You can check into the <b style="color:orange">Cargo.toml</b> file and change th
 ![screenshot](./c1-s1.png)
 
 You'll notice that there is already a crate-type and a dependency already loaded in. 
-Here is one of our ways to talk to javascript, using [wasm-bindgen](https://rustwasm.github.io/wasm-bindgen/). Taken from the [repository](https://github.com/rustwasm/wasm-bindgen) :
+Here is one of our ways to talk to javascript, using <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/">wasm-bindgen</a>. Taken from the <a target="_blank" href="https://github.com/rustwasm/wasm-bindgen">repository</a>:
 </div>
 
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
@@ -121,7 +121,7 @@ You do not have to know what's going on here, basically just compiling our code 
 </div>
 
 <div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
-<span style="font-size : 30px;"><b><a target ="_blank" href="https://webpack.js.org/">Testing</a></b></span>
+<span style="font-size : 30px;"><b>Testing</b></span>
 <br>
 <span style="color:grey">The test</span>
 </div>

@@ -154,7 +154,7 @@ use wasm_bindgen::prelude::*; // imports wasm_bindgen crate
 ```
 
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
-the  <b style="color:rgba(232, 50, 37, 1)">#[wasm_bindgen]</b> <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/reference/attributes/index.html">macro helps for controlling precisely how exports are exported</a>
+the  <b style="color:rgba(232, 50, 37, 1)">#[wasm_bindgen]</b> <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/reference/attributes/index.html">macro helps for controlling precisely how exports are exported and how imports are imported</a>
 
 anything after a <b>#[wasm_bindgen]</b> macro with a <b>extern "C" brackets will be javascript imports</b> :  
 
