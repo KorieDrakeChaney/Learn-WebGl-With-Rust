@@ -3,11 +3,11 @@
 
 --- 
 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px; ">
 <span style="font-size : 30px;"><b>Before We Start</b></span>
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px;">
 Before we get into creating stunning visuals, and starting to make things. We need to have a canvas to draw onto. This section will be the introduction to a new technology along side wasm_bindgen. We're introducing <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/web-sys/index.html"><b>web-sys</b></a>, a crate that allows us to add more features on top of wasm-bindgen. From the web-sys guide, this crates allows us to use: 
 <ul>
   <li><b style="color : rgba(71, 155, 205, 1)">window.fetch</b></li>
@@ -17,7 +17,7 @@ Before we get into creating stunning visuals, and starting to make things. We ne
 </ul>
 
 Now for the readers who have spotted this, you may already know why we're using this. WebGL, is the Rendering API that allows us to create 3D/2D graphics. Without WebGL, we have nothing ;-;.
-<div style = "padding:5%;background-color : rgba(0, 0, 0, 0.075);">
+<div style = "padding:5%;background-color : rgba(0, 0, 0, 0.075); ">
     <i style="color:grey">Yes there's another technology called WebGPU, but as of writing this, is <a target= "_blank" href="https://caniuse.com/webgpu">not supported by any browsers</a>, some browsers do allow to enable it, but it's far too unfunctional</i>  
 </div>
 
@@ -41,7 +41,7 @@ wasm-bindgen = "*"
 [depencies.web-sys]
 version = "*"
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 
 
 But that's not all, we do have to add some features from the crate manually. For this chapter, all we need access to:
@@ -67,7 +67,7 @@ features = [
     'WebGl2RenderingContext'
 ]
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 
 
 and in chapters to come, we will keep adding to this. 
@@ -75,11 +75,11 @@ and in chapters to come, we will keep adding to this.
 
 ---
 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b>Setting up our html file</b></span>
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px;">
 Our document does need a canvas element for us to reference later. So to start, in your <b style="color:rgba(50, 150, 150, 1);">public</b> directory, go into your <b style="color:orange">index.html</b> file and write the following line in your body:
 
 </div> 
@@ -89,7 +89,8 @@ Our document does need a canvas element for us to reference later. So to start, 
     <canvas id="canvas"></canvas>
 </body>
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-bottom : solid black 2px; border-top : solid black 2px;">
  
 To add finishing touches, we can style the canvas element in our html file, so that is takes up the whole screen:
 
@@ -104,7 +105,8 @@ To add finishing touches, we can style the canvas element in our html file, so t
 </style>
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-bottom : solid black 2px; border-top : solid black 2px;">
 
 You can even for fun change the < title > in the < head > section to whatever you want, have fun with this tutorial :).
 
@@ -118,13 +120,14 @@ You can even for fun change the < title > in the < head > section to whatever yo
 ---
 
 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px; ">
 <span style="font-size : 30px;"><b>Understanding Wasm-Bindgen</b></span>
 <br>
 <span style="color:grey">From this point onwards, everything will be in rust</span>
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-bottom : solid black 2px; ">
 
 In our <b style="color:rgba(50, 150, 150, 1);">src</b> directory, go into your <b style="color:orange">lib.rs</b>
 
@@ -145,7 +148,8 @@ pub fn main() {
 }
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-bottom : solid black 2px; border-top : solid black 2px;">
 To dissect this code:
 </div>
 
@@ -153,7 +157,7 @@ To dissect this code:
 use wasm_bindgen::prelude::*; // imports wasm_bindgen crate
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 the  <b style="color:rgba(232, 50, 37, 1)">#[wasm_bindgen]</b> <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/reference/attributes/index.html">macro helps for controlling precisely how exports are exported and how imports are imported</a>
 
 anything after a <b>#[wasm_bindgen]</b> macro with a <b>extern "C" brackets will be javascript imports</b> :  
@@ -166,7 +170,7 @@ extern "C" {
     fn alert(s: &str); // imports alert function from javascript
 }
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 anything after a <b>#[wasm_bindgen]</b> macro that is <b>public</b> will be exported :
 </div>
 
@@ -177,7 +181,7 @@ pub fn main() {
 }
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 We can get rid of the import and use of alert in our main function and just leave our code like this: 
 </div>
 
@@ -188,12 +192,14 @@ use wasm_bindgen::prelude::*;
 pub fn main() {
 }
 ```
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+---
+
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px; ">
 <span style="font-size : 30px;"><b>Using Web-Sys</b></span>
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
-let's use <b>web_sys</b> now by importing it in with the WebGl2RenderingContext that we put in our features earlier.
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px;">
+Let's use <b>web_sys</b> now by importing it in with the WebGl2RenderingContext that we put in our features earlier.
 </div>
 
 ```rust
@@ -202,7 +208,8 @@ use web_sys::{WebGl2RenderingContext};
 use wasm_bindgen::JsCast; // A trait for checked and unchecked casting between JS types.
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-top : solid black 2px; border-bottom : solid black 2px;">
 Now we can reference the document get the canvas from that document, and create our WebGL context.
 </div>
 <br>
@@ -218,7 +225,7 @@ pub fn main() {
 }
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 Now if you disect this , it shouldn't be all that scary, first we retrieve <b>window</b>, by unwrapping, then we get the <b>document</b> by unwrapping.
 
 After getting the document, we can get the canvas by doing a normal javascript function<b>
@@ -234,12 +241,13 @@ pub fn main() {
 }
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-bottom : solid black 2px; border-top : solid black 2px;">
 Now this should make a little more sense, first we use the function <b>
 <a style="color:rgba(100, 155, 155, 1); text-decoration:underline;" href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.HtmlCanvasElement.html#method.get_context" target="_blank">get_context</a>("~~~~")</b> to retrive the <b>JSValue</b> of the context, then we <b>dyn_into</b> it to retrive the rust value.
 
 Now if we refreshed now, there still wouldn't sign of anything. If everything worked, we should have the <b>WebGL2RenderingContext</b>, which allows us to use <a href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html" target="_blank">WebGL2's API</a>, to show that we do have it, let's try a function, <b>
-<a style="color:rgba(100, 155, 155, 1); text-decoration:underline;" href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html#method.clear" target="_blank">clear</a>("~~~~")</b>, and clear the <a href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html#method.clear" target="_blank">color_buffer_bit</a> to a color using the function <a style="color:rgba(100, 155, 155, 1); text-decoration:underline;" href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html#method.clear_color" target="_blank">clear_color</a>("~~~~")</b>, and set the RGBA values to the color red, a very noticable color.
+<a style="color:rgba(100, 155, 155, 1); text-decoration:underline;" href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html#method.clear" target="_blank">clear</a>("~~~~")</b>, and clear the <a href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html#method.clear" target="_blank">color_buffer_bit</a> to a color using the function <a style="color:rgba(100, 155, 155, 1); text-decoration:underline;" href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/struct.WebGl2RenderingContext.html#method.clear_color" target="_blank"><b>clear_color</a>("~~~~")</b>, and set the RGBA values to the color red, a very noticable color.
 </div>
 
 ```rust
@@ -250,7 +258,8 @@ pub fn main() {
 }
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-bottom : solid black 2px; border-top : solid black 2px;">
 Now if you followed along, you should have your rust file looking like this:
 </div>
 
@@ -275,14 +284,16 @@ pub fn main() {
 }
 }
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-bottom : solid black 2px; border-top : solid black 2px;">
 Let's refresh and see if we see any changes. If everything went right, we should see a red canvas.
 </div>
 
 ```bash
 npm run refresh
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
+border-bottom : solid black 2px; border-top : solid black 2px;">
 at <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>: 
 </div>
 

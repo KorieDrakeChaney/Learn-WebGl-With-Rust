@@ -3,11 +3,11 @@
 
 ---
 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b>About This Tutorial</b></span>
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);  border-left : solid black 2px; border-right : solid black 2px;">
 
 <i style="color:grey;">This tutorial is free and open source, and all code uses the MIT license - so you are free to do whatever you want with this <a style="color:rgba(0, 125, 125, 1);" href="https://github.com/KorieDrakeChaney/Learn-WebGl-With-Rust" target="_blank">code</a> :D</i>
 
@@ -16,7 +16,7 @@ I really enjoy computer graphics, from the mathematically aspect and the results
 
 ---
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 <h2 style="color:rgba(255, 125, 125, 0.75)">Prerequisites</h2>
 
 * <a target="_blank" href="https://www.rust-lang.org/tools/install">Rust</a>
@@ -30,7 +30,7 @@ If you do not know anything about rust, I will direct you to these following tut
 
 ---
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 <h2 style="color:rgba(255, 125, 125, 0.75)">Learning Rust</h2>
 
 * <a target="_blank" href="https://doc.rust-lang.org/book/">The Rust Programming Language Book</a> allows you to understand the basics. 
@@ -41,13 +41,13 @@ If you do not know anything about rust, I will direct you to these following tut
 
 ---
 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://webpack.js.org/">Structure</a></b></span>
 <br>
 <span style="color:grey">Tutorial layout</span>
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
     Taken from <a target="_blank" href="https://learnopengl.com/Introduction">learnopengl.com</a>, I'll also structure this the same way, with boxes, code blocks, color hints, and <i>function references</i> but translated in webgl.
 
 <h2 style="color:rgba(255, 125, 125, 0.75)">Boxes</h2>

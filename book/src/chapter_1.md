@@ -2,11 +2,11 @@
 <h1 style = "text-align: center;"> Chapter 1 : Setup </h1>
 
 --- 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b>Template</b></span>
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 Before we get into the fun stuff, we do need to set up our dev space.
 I'll be using VSCode, but you can use whichever IDE of your choice.
 
@@ -15,7 +15,7 @@ I would also like for you to use the same <a target="_blank" href="https://githu
 
 ---
 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b><a target ="_blank" href="https://github.com/cargo-generate/cargo-generate">cargo-generate</a></b></span>
 <br>
 <span style="color:grey">The setup</span>
@@ -30,7 +30,7 @@ I would also like for you to use the same <a target="_blank" href="https://githu
     cargo build && npm install
     code ./
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 You should get something a layout like this :
 
 ![screenshot](./c1-s0.png)
@@ -39,13 +39,13 @@ You'll have a <b style="color:rgba(50, 150, 150, 1);">public</b>, <b style="colo
 </div>
 
 ---
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b><a target ="_blank" href="https://github.com/rustwasm/wasm-bindgen">Wasm-Bindgen</a></b></span>
 <br>
 <span style="color:grey">The communicator</span>
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 You can check into the <b style="color:orange">Cargo.toml</b> file and change the name to whatever you want, I'll fill mine out like this :
 
 ![screenshot](./c1-s1.png)
@@ -54,7 +54,7 @@ You'll notice that there is already a crate-type and a dependency already loaded
 Here is one of our ways to talk to javascript, using <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/">wasm-bindgen</a>. Taken from the <a target="_blank" href="https://github.com/rustwasm/wasm-bindgen">repository</a>:
 </div>
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 <h2 style="text-align:center"> <b>Features</b> </h2>
 
 * **Lightweight.** Only pay for what you use. `wasm-bindgen` only generates
@@ -76,12 +76,12 @@ Here is one of our ways to talk to javascript, using <a target="_blank" href="ht
 
 ---
 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px; ">
 <span style="font-size : 30px;"><b><a target ="_blank" href="https://webpack.js.org/">Webpack</a></b></span>
 <br>
 <span style="color:grey">The bundler</span>
 </div>
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 In the <b style="color : orange">webpack.config.js</b> file, you'll see that this is our setup:
 
 ``` javascript
@@ -120,12 +120,14 @@ module.exports = {
 You do not have to know what's going on here, basically just compiling our code from our rust files into a javascript/wasm relationship.
 </div>
 
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+--- 
+
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b>Testing</b></span>
 <br>
 <span style="color:grey">The test</span>
 </div>
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 To check if we are all on the same page, I want to introduce some of the commands in our <b style="color : orange">package.json</b> file. 
 
 We should have these scripts in our json file
