@@ -145,15 +145,15 @@
                         <br>
 <h1 style = "text-align: center;"> Introduction </h1>
 <hr />
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b>About This Tutorial</b></span>
 </div>
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);  border-left : solid black 2px; border-right : solid black 2px;">
 <p><i style="color:grey;">This tutorial is free and open source, and all code uses the MIT license - so you are free to do whatever you want with this <a style="color:rgba(0, 125, 125, 1);" href="https://github.com/KorieDrakeChaney/Learn-WebGl-With-Rust" target="_blank">code</a> :D</i></p>
 <p>I really enjoy computer graphics, from the mathematically aspect and the results that you can create. The possibilities are limitless, you can make worlds, games, simulations, data visualizations, beautiful websites, anything. With the computer graphics world, I feel that there is one tutorial that stands above the rest. That tutorial is <a target="_blank" href="https://learnopengl.com">learnopengl.com</a>. To continue the love and my love for Web Development / Rust, I will be recreating that tutorial, for users who want to learn WebGl but also want to use Rust as their language of choice. You'll also learn WebAssembly in general through this process.</p>
 </div>
 <hr />
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 <h2 style="color:rgba(255, 125, 125, 0.75)">Prerequisites</h2>
 <ul>
 <li>
@@ -167,7 +167,7 @@
 <p>If you do not know anything about rust, I will direct you to these following tutorials...</p>
 </div>
 <hr />
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 <h2 style="color:rgba(255, 125, 125, 0.75)">Learning Rust</h2>
 <ul>
 <li><a target="_blank" href="https://doc.rust-lang.org/book/">The Rust Programming Language Book</a> allows you to understand the basics. </li>
@@ -176,12 +176,12 @@
 </ul>
 </div>
 <hr />
-<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; ">
+<div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px;">
 <span style="font-size : 30px;"><b><a style="color:white;" target ="_blank" href="https://webpack.js.org/">Structure</a></b></span>
 <br>
 <span style="color:grey">Tutorial layout</span>
 </div>
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05);">
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
     Taken from <a target="_blank" href="https://learnopengl.com/Introduction">learnopengl.com</a>, I'll also structure this the same way, with boxes, code blocks, color hints, and <i>function references</i> but translated in webgl.
 <h2 style="color:rgba(255, 125, 125, 0.75)">Boxes</h2>
 <div style="background-color : rgba(191, 245, 205, 0.75); padding:2% 1%"> <b style="color : rgba(7, 41, 16, 1)">Green</b> <span style="color : rgba(23, 87, 40, 1)">boxes encompasses some notes or useful features/hints about WebGL or the subject at hand.</span></div>
@@ -234,6 +234,20 @@ Functions will show up in a slightly noticeable underline with bolded and color,
 
         </div>
 
+        <!-- Livereload script (if served using the cli tool) -->
+        <script type="text/javascript">
+            var socket = new WebSocket("ws://localhost:3000/__livereload");
+            socket.onmessage = function (event) {
+                if (event.data === "reload") {
+                    socket.close();
+                    location.reload();
+                }
+            };
+
+            window.onbeforeunload = function() {
+                socket.close();
+            }
+        </script>
 
 
 
