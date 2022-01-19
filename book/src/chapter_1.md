@@ -21,6 +21,8 @@ I would also like for you to use the same <a target="_blank" href="https://githu
 <span style="color:grey">The setup</span>
 </div>
 
+<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
+
 ``` bash
     cargo generate https://github.com/KorieDrakeChaney/Rust-Wasm-Web-Template.git
 ```
@@ -30,7 +32,6 @@ I would also like for you to use the same <a target="_blank" href="https://githu
     cargo build && npm install
     code ./
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;">
 You should get something a layout like this :
 
 ![screenshot](./c1-s0.png)

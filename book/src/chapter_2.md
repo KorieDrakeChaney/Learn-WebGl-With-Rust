@@ -23,8 +23,6 @@ Now for the readers who have spotted this, you may already know why we're using 
 
 So for this chapter, we will be adding <b>web-sys</b> in our <b style="color:orange">Cargo.toml</b> file:
 
-</div>
-
 ``` toml
 [package]
 name = "~~~"
@@ -41,8 +39,6 @@ wasm-bindgen = "*"
 [depencies.web-sys]
 version = "*"
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
-
 
 But that's not all, we do have to add some features from the crate manually. For this chapter, all we need access to:
 
@@ -55,7 +51,6 @@ But that's not all, we do have to add some features from the crate manually. For
 
 So our crate should look like this:
 
-</div>
 
 ``` toml
 [dependencies.web-sys]
@@ -67,8 +62,6 @@ features = [
     'WebGl2RenderingContext'
 ]
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
-
 
 and in chapters to come, we will keep adding to this. 
 </div>
@@ -82,41 +75,34 @@ and in chapters to come, we will keep adding to this.
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px;">
 Our document does need a canvas element for us to reference later. So to start, in your <b style="color:rgba(50, 150, 150, 1);">public</b> directory, go into your <b style="color:orange">index.html</b> file and write the following line in your body:
 
-</div> 
 
 ```html
 <body>
     <canvas id="canvas"></canvas>
 </body>
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
-border-bottom : solid black 2px; border-top : solid black 2px;">
  
 To add finishing touches, we can style the canvas element in our html file, so that is takes up the whole screen:
 
-</div>
 
 ```html
 <style>
     #canvas { 
-    width : 100%;
+        width : 100%;
     height : 90vh;
     }
 </style>
 ```
-
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
-border-bottom : solid black 2px; border-top : solid black 2px;">
-
 You can even for fun change the < title > in the < head > section to whatever you want, have fun with this tutorial :).
-
-</div>
 
 ```html
 <head>
     <title>~~~</title>
 </head>
 ```
+
+</div> 
+
 ---
 
 
@@ -132,7 +118,6 @@ border-bottom : solid black 2px; ">
 In our <b style="color:rgba(50, 150, 150, 1);">src</b> directory, go into your <b style="color:orange">lib.rs</b>
 
 we should see this : 
-</div>
 
 ```rust
 use wasm_bindgen::prelude::*;
@@ -148,21 +133,16 @@ pub fn main() {
 }
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
-border-bottom : solid black 2px; border-top : solid black 2px;">
 To dissect this code:
-</div>
 
 ```rust
 use wasm_bindgen::prelude::*; // imports wasm_bindgen crate
 ```
-
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 the  <b style="color:rgba(232, 50, 37, 1)">#[wasm_bindgen]</b> <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/reference/attributes/index.html">macro helps for controlling precisely how exports are exported and how imports are imported</a>
-
-anything after a <b>#[wasm_bindgen]</b> macro with a <b>extern "C" brackets will be javascript imports</b> :  
-
 </div>
+<br>
+anything after a <b>#[wasm_bindgen]</b> macro with a <b>extern "C" brackets will be javascript imports</b> :  
 
 ```rust
 #[wasm_bindgen]
@@ -170,9 +150,7 @@ extern "C" {
     fn alert(s: &str); // imports alert function from javascript
 }
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 anything after a <b>#[wasm_bindgen]</b> macro that is <b>public</b> will be exported :
-</div>
 
 ```rust
 #[wasm_bindgen(start)] // (start) means this function will be called at the start
@@ -181,17 +159,17 @@ pub fn main() {
 }
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
 We can get rid of the import and use of alert in our main function and just leave our code like this: 
-</div>
 
 ```rust
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen(start)]
 pub fn main() {
-}
+    }
 ```
+</div>
+
 ---
 
 <div style = "background-color : rgba(0, 0, 0, 0.05); text-align: center; border-left : solid black 2px; border-right : solid black 2px; ">
@@ -200,7 +178,6 @@ pub fn main() {
 
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px;">
 Let's use <b>web_sys</b> now by importing it in with the WebGl2RenderingContext that we put in our features earlier.
-</div>
 
 ```rust
 use wasm_bindgen::prelude::*;
@@ -208,10 +185,7 @@ use web_sys::{WebGl2RenderingContext};
 use wasm_bindgen::JsCast; // A trait for checked and unchecked casting between JS types.
 ```
 
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
-border-top : solid black 2px; border-bottom : solid black 2px;">
 Now we can reference the document get the canvas from that document, and create our WebGL context.
-</div>
 <br>
 
 <div style="background-color : rgba(191, 245, 205, 0.75); padding:2% 1%"><span style="color : rgba(23, 87, 40, 1)">Important tip, always check the <a target="_blank" href="https://rustwasm.github.io/wasm-bindgen/api/web_sys/">web-sys</a> documentation for learning more about it's features </span></div>
@@ -226,7 +200,7 @@ pub fn main() {
 ```
 
 <div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px; border-bottom : solid black 2px; border-top : solid black 2px;">
-Now if you disect this , it shouldn't be all that scary, first we retrieve <b>window</b>, by unwrapping, then we get the <b>document</b> by unwrapping.
+Now if you dissect this , it shouldn't be all that scary, first we retrieve <b>window</b>, by unwrapping, then we get the <b>document</b> by unwrapping.
 
 After getting the document, we can get the canvas by doing a normal javascript function<b>
 <a style="color:rgba(100, 155, 155, 1); text-decoration:underline;" href="https://docs.rs/web-sys/0.3.27/web_sys/struct.Document.html#method.get_element_by_id" target="_blank">get_element_by_id</a>("~~~~")</b>, which the id we put for our canvas element was "canvas", then of course we unwrap.
@@ -257,16 +231,12 @@ pub fn main() {
     gl.clear(WebGl2RenderingContext::COLOR_BUFFER_BIT);
 }
 ```
-
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
-border-bottom : solid black 2px; border-top : solid black 2px;">
 Now if you followed along, you should have your rust file looking like this:
-</div>
 
 ```rust
 #[wasm_bindgen(start)]
 pub fn main() {
-use wasm_bindgen::prelude::*;
+    use wasm_bindgen::prelude::*;
 use web_sys::{WebGl2RenderingContext};
 use wasm_bindgen::JsCast;
 
@@ -284,17 +254,13 @@ pub fn main() {
 }
 }
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
-border-bottom : solid black 2px; border-top : solid black 2px;">
 Let's refresh and see if we see any changes. If everything went right, we should see a red canvas.
-</div>
 
 ```bash
 npm run refresh
 ```
-<div style = "padding:2%;background-color : rgba(0, 0, 0, 0.05); border-left : solid black 2px; border-right : solid black 2px;
-border-bottom : solid black 2px; border-top : solid black 2px;">
 at <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>: 
-</div>
 
 ![screenshot](./c1-s3.png)
+
+</div>
